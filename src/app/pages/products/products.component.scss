@@ -14,7 +14,8 @@ $sideBarWidth: 500px;
 
         .app-ndw-search-container {
             height: 76px;
-            padding: 10px;
+            padding: 10px 10px 0px 10px;
+            border-top: 1px $borderColor solid;
             border-bottom: 1px $borderColor solid;
             background: #f2f2f2;
 
@@ -22,13 +23,22 @@ $sideBarWidth: 500px;
                 width: 100%;
             }
 
-            .example-full-width {
+            .full-width {
                 width: 100%;
 
                 .mat-form-field-wrapper {
-                    padding-bottom: 0;
+                    /*padding-bottom: 0;*/
                 }
             }
+        }
+
+        .app-ndw-shopping-cart {
+            height: 400px;
+            padding: 10px 10px 0px 10px;
+            border-top: 1px $borderColor solid;
+            border-bottom: 1px $borderColor solid;
+            background: #f2f2f2;
+
         }
 
         .app-ndw-items-container {
@@ -47,13 +57,24 @@ $sideBarWidth: 500px;
     }
 
     .app-ndw-pick-points-container {
-        width: 200px;
-        border-left: 1px $borderColor solid;
+        flex: 0 0 270px;
+        border: 1px $borderColor solid;
         box-shadow: -1px 0 3px 0 rgba(38, 38, 38, 0.25);
+        overflow-y: auto;
+
+        .mat-card {
+            border-radius: 0px;
+
+            .mat-card-header-text {
+                padding: 0;
+            }
+        }
     }
 
     .app-ndw-map-container {
         flex-basis: 100%;
+        border-top: 1px $borderColor solid;
+        border-bottom: 1px $borderColor solid;
 
         google-map {
             display: flex;
@@ -62,7 +83,14 @@ $sideBarWidth: 500px;
         }
     }
 }
-
+h4 {
+    padding: 0 16px 0 16px;
+}
+.mat-drawer-content {
+    width: 100%;
+}
+/*
 app-root > .container {
     width: 100%;
 }
+*/
