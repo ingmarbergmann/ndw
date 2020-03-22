@@ -53,6 +53,28 @@ app-root {
     }
 }
 
-.gm-style-iw.gm-style-iw-c, .gm-style .gm-style-iw-t::after {
+.gm-style-iw.gm-style-iw-c,
+.gm-style .gm-style-iw-t::after,
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track,
+.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
     background-color: #673ab7;
+    color: white;
+}
+.gm-style .gm-style-iw-t::after {
+    background: inherit;
+}
+.gm-circle-info {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    background: #5413b7;
+    margin-right: 10px;
+    font-weight: bold;
+}
+map-info-window div {
+    float: left;
 }

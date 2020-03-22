@@ -123,12 +123,8 @@ export class HomeComponent {
         lat,
         lng,
       },
-      label: {
-        color: 'red',
-        text: label
-      },
       title,
-      options: { animation: google.maps.Animation.BOUNCE, markerData },
+      options: { markerData },
     })
   }
 

@@ -17,8 +17,11 @@
     ></map-marker>
     
     <map-info-window>
-        <p><b>{{ infoContent?.properties?.name || infoContent?.id}}</b></p>
-        <p>&#11089;&nbsp;&#11089;&nbsp;&#11089;&nbsp;&#11089;</p>
+        <div class="gm-circle-info">5 min</div>
+        <div>
+            <span><b>{{ infoContent?.properties?.name || infoContent?.id}}</b></span><br/>
+            <span>&#11089;&nbsp;&#11089;&nbsp;&#11089;&nbsp;&#11089;</span>
+        </div>
     </map-info-window>
 </google-map>
 <app-card-block></app-card-block>
