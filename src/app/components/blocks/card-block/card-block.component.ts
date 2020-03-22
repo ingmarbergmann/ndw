@@ -6,13 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-block.component.scss']
 })
 export class CardBlockComponent {
-  titleCard = 'Angular';
-  numberCard = 8;
-  subTitleCard = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisl ligula.';
-  contentCard = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nisl ligula.';
-  angularImage: string;
+  titleCard = 'Dezentrale Versorgung des Nötigsten';
+  //numberCard = 8;
+  subTitleCard = 'Wie kann man dezentrale Lösungen schaffen, damit die Menschen mit weniger Risiko an alle lebensnotwendigen Artikel kommen? Sie können lokale Erzeuger geholfen werden, damit Ihre Produkte direkt verkafut werden?';
+  contentCard = 'Der Supermarktbesuch ist aktuell eines der größten Risiken um sich selbst mit dem Virus zu infizieren oder um andere Menschen zu infizieren. Durch Lebensmittelautomaten kann der Kontakt zu anderen Menschen minimiert werden.';
+  angularImage1: string;
+  angularImage2: string;
+  angularImage3: string;
 
   constructor() {
-    this.angularImage = '/assets/img/angular2.png'; }
+    this.angularImage1 = '/assets/img/angular2.png';
+    this.angularImage2 = '/assets/img/angular2.png';
+    this.angularImage3 = '/assets/img/angular2.png';}
 
 }
