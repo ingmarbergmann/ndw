@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { firebaseKeys } from './firebase.config';
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { firebaseKeys } from './firebase.config';
 })
 
 export class AppComponent implements OnInit {
+  constructor(firestore: AngularFirestore) {
+  }
 
   public ngOnInit(): void {
     if (!firebase.apps.length) {

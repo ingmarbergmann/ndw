@@ -50,6 +50,9 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatCardModule} from "@angular/material/card";
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatIconModule} from "@angular/material/icon";
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment";
+import {AngularFirestoreModule} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [
@@ -63,6 +66,8 @@ import {MatIconModule} from "@angular/material/icon";
     EmailMeComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     GoogleMapsModule,
     BrowserModule,
     BrowserAnimationsModule,

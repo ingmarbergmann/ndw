@@ -41,3 +41,7 @@ Want to file a bug, contribute some code, or improve documentation? Feel free to
 ## License
 
 [![npmlicense](https://img.shields.io/npm/l/ngxmatfire.svg)](https://github.com/jeroenouw/AngularMaterialFirebase/blob/master/LICENSE/)
+
+curl -sL https://firebase.tools | bash
+firebase login
+firebase init
