@@ -4,14 +4,25 @@
   [zoom]="zoom"
   [center]="center"
   [options]="options"
+  (mapClick)="click($event)"
 >
     <map-marker
-            *ngFor="let marker of markers"
-            [position]="marker.position"
-            [label]="marker.label"
-            [title]="marker.title"
-            [options]="marker.options"
+        #markerElem
+        *ngFor="let marker of markers"
+        [position]="marker.position"
+        [label]="marker.label"
+        [title]="marker.title"
+        [options]="marker.options"
+        (mapClick)="openInfo(markerElem)"
     ></map-marker>
+    
+    <map-info-window>
+        <div class="gm-circle-info">5 min</div>
+        <div>
+            <span><b>{{ infoContent?.properties?.name || infoContent?.id}}</b></span><br/>
+            <span>&#11089;&nbsp;&#11089;&nbsp;&#11089;&nbsp;&#11089;</span>
+        </div>
+    </map-info-window>
 </google-map>
 <app-card-block></app-card-block>
 <app-background-slant></app-background-slant>
