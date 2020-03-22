@@ -112,10 +112,11 @@ export class HomeComponent {
       },
       label: {
         color: 'red',
-        text: label,
+        text: label
       },
       title,
       options: { animation: google.maps.Animation.BOUNCE },
+
     })
   }
 

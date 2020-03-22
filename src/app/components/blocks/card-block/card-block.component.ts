@@ -15,7 +15,7 @@ export class CardBlockComponent {
   angularImage3: string;
 
   constructor() {
-    this.angularImage1 = '/assets/img/angular2.png';
+    this.angularImage1 = '/assets/img/bauer.png';
     this.angularImage2 = '/assets/img/angular2.png';
     this.angularImage3 = '/assets/img/angular2.png';}
 
