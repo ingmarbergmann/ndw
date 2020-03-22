@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "wirvsvirus2"
+  },
+  "targets": {
+    "wirvsvirus2": {
+      "hosting": {
+        "ngxmatfire": [
+          "wirvsvirus2"
+        ]
+      }
+    }
+  }
+}

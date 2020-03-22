@@ -29,7 +29,7 @@ export class HomeComponent {
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
   infoContent = {properties:{name:null},id:null};
 
-  openInfo(marker: MapMarker, content) {
+  openInfo(marker: MapMarker) {
     //console.log(marker, marker._marker.markerData, content);
     //this.infoContent = marker._marker.markerData;
     this.info.open(marker)

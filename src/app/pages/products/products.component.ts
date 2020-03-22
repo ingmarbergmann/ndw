@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LoadgeojsonService} from "@shared/services/loadgeojson.service";
 import {AutomatService} from "@shared/services/automat.service";
 import {GeoService} from "@shared/services/geo.service";
@@ -7,22 +7,41 @@ import {GeoFire} from "geofire";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {FormControl} from "@angular/forms";
-import {ViewEncapsulation} from "@angular/cli/lib/config/schema";
+import {GoogleMap, MapInfoWindow, MapMarker} from "@angular/google-maps";
+// import {ViewEncapsulation} from "@angular/cli/lib/config/schema";
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class ProductsComponent implements OnInit {
 
+  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
+  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  infoContent = {properties:{name:null},id:null};
+
+  openInfo(marker: MapMarker, content) {
+    //console.log(marker, marker._marker.markerData, content);
+    //this.infoContent = marker._marker.markerData;
+    this.info.open(marker)
+  }
   zoom = 12;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'roadmap',
   };
   markers: any[] = [];
+
+  click(event: google.maps.MouseEvent) {
+    console.log(event)
+  }
+
+  constructor(private loadgeojsonService:LoadgeojsonService,
+              private automatService:AutomatService,
+              private geoService: GeoService) {
+  }
 
   firebaseRef = firebase.database().ref();
   geoFire = new GeoFire(this.firebaseRef);
@@ -37,10 +56,6 @@ export class ProductsComponent implements OnInit {
   myControl = new FormControl();
   autocomplete: string[] = ['One', 'Two', 'Three'];
 
-  constructor(private loadgeojsonService:LoadgeojsonService,
-              private automatService:AutomatService,
-              private geoService: GeoService) { }
-
   private unsubscribe$: Subject<void> = new Subject();
 
   getAutomatsGeoJson() {
@@ -50,7 +65,7 @@ export class ProductsComponent implements OnInit {
       // let i = 0;
       // automatsGeoJson.features.forEach(feature => {
       //   i++;
-      //   if(i < 60 || i > 70) return;
+      //   if(i < 70 || i > 100) return;
       //   let automat:Automat = new Automat();
       //   console.log(automat);
       //   automat.properties = feature.properties;
@@ -93,7 +108,7 @@ export class ProductsComponent implements OnInit {
       console.log(automats);
       automats.forEach(automat => {
         let markerName = automat.properties && automat.properties.name || automat.id;
-        this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id, markerName)
+        this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id, markerName, automat)
       })
     });
     //this.getAutomatsGeoJson();
@@ -103,18 +118,14 @@ export class ProductsComponent implements OnInit {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
-  addMarker(lat: number, lng: number, title: string, label: string) {
+  addMarker(lat: number, lng: number, title: string, label: string, markerData: any) {
     this.markers.push({
       position: {
         lat,
         lng,
       },
-      label: {
-        color: 'red',
-        text: label,
-      },
       title,
-      options: { animation: google.maps.Animation.BOUNCE },
+      options: { markerData },
     })
   }
 
