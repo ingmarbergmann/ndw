@@ -17,6 +17,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "build": "tsc",
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
