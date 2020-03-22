@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {LoadgeojsonService} from "@shared/services/loadgeojson.service";
 import {Automat} from "@shared/models/automat.model";
 import GeoPoint = firebase.firestore.GeoPoint;
 import * as firebase from "firebase";
 import {GeoFire, GeoFireTypes} from "geofire";
 import {AutomatService} from "@shared/services/automat.service";
-import {MapMarker} from "@angular/google-maps";
+import {GoogleMap, MapInfoWindow, MapMarker} from "@angular/google-maps";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {GeoService} from "@shared/services/geo.service";
@@ -25,12 +25,25 @@ import {GeoService} from "@shared/services/geo.service";
 
 export class HomeComponent {
 
+  @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
+  @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
+  infoContent = {};
+
+  openInfo(marker: MapMarker, content) {
+    console.log(marker._marker.markerData, content);
+    this.infoContent = marker._marker.markerData;
+    this.info.open(marker)
+  }
   zoom = 12;
   center: google.maps.LatLngLiteral;
   options: google.maps.MapOptions = {
     mapTypeId: 'roadmap',
   };
   markers: any[] = [];
+
+  click(event: google.maps.MouseEvent) {
+    console.log(event)
+  }
 
   constructor(private loadgeojsonService:LoadgeojsonService,
               private automatService:AutomatService,
@@ -94,7 +107,7 @@ export class HomeComponent {
       console.log(automats);
       automats.forEach(automat => {
         let markerName = automat.properties && automat.properties.name || automat.id;
-        this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id, markerName)
+        this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id, markerName, automat)
       })
     });
     //this.getAutomatsGeoJson();
@@ -104,7 +117,7 @@ export class HomeComponent {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
-  addMarker(lat: number, lng: number, title: string, label: string) {
+  addMarker(lat: number, lng: number, title: string, label: string, markerData: any) {
     this.markers.push({
       position: {
         lat,
@@ -115,8 +128,7 @@ export class HomeComponent {
         text: label
       },
       title,
-      options: { animation: google.maps.Animation.BOUNCE },
-
+      options: { animation: google.maps.Animation.BOUNCE, markerData },
     })
   }
 
