@@ -17,7 +17,7 @@
 
 span a, span a:hover {
   text-decoration: none;
-  color:rgba(255,255,255,.87);
+  //color:rgba(255,255,255,.87);
 }
 
 mat-icon {
@@ -27,18 +27,19 @@ mat-icon {
 .menu-link a, .menu-link a:hover {
   font-size: 14px;
   text-decoration: none;
-  color:rgba(255,255,255,.87);
+  //color:rgba(255,255,255,.87);
   margin: 0 10px;
 }
 
 a, a:hover { 
   text-decoration: none;
-  color:rgba(0,0,0,.87);
+  //color:rgba(0,0,0,.87);
+  color: #673ab7;
 }
 
 .mat-icon {
   text-decoration: none;
-  color:rgba(255,255,255,.87);
+  //color:rgba(255,255,255,.87);
 }
 
 .login, .logout, .profile, .messages, .settings, .home, .about, .contact, .misc, .signup{

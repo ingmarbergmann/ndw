@@ -14,9 +14,11 @@ export class CarouselComponent {
 }
 
 const IMAGES: Image[] = [
-  { 'title': 'Carousel slide nr 1', 'url': '/assets/img/mb-bg-06.png' },
-  { 'title': 'Carousel slide nr 2', 'url': '/assets/img/mb-bg-05.png' },
-  { 'title': 'Carousel slide nr 3', 'url': '/assets/img/mb-bg-06.png' },
-  { 'title': 'Carousel slide nr 4', 'url': '/assets/img/mb-bg-05.png' },
-  { 'title': 'Carousel slide nr 5', 'url': '/assets/img/mb-bg-06.png' },
+  { 'title': 'Nutzern erlaubt, Lebensmittelautomaten einzutragen', 'url': '/assets/img/01_vendingMachines_no_login.png' },
+  { 'title': 'Die Lebensmittelautomaten auf einer Karte, sowie in einer Liste anzeigen', 'url': '/assets/img/02_vendingMachines_login_screen.png' },
+  { 'title': 'Bezahlmöglichkeit über die Webseite', 'url': '/assets/img/03_vendingMachines_search_result.png' },
+  { 'title': 'Abholung der Ware über eindeutigen Code oder Login Daten', 'url': '/assets/img/04_vendingMachines_search_result_detail.png' },
+  { 'title': 'Abholung der Ware über eindeutigen Code oder Login Daten', 'url': '/assets/img/05_vendingMachines_search_result_detail.png' },
+  { 'title': 'Abholung der Ware über eindeutigen Code oder Login Daten', 'url': '/assets/img/06_vendingMachines_create_new_machine.png' },
+
 ];

@@ -18,6 +18,15 @@ app-root {
     width: 100%;
 }
 
+.mat-toolbar.mat-primary {
+    background: #ffffff;
+    color: #673ab7;
+}
+
+.mat-icon[_ngcontent-klv-c2] {
+    //color: #673ab7;
+}
+
 /* Tablet format and lower */
 @media only screen and (max-width: 1024px) {
 

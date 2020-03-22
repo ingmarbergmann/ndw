@@ -51,22 +51,22 @@
 <!-- Header -->
 <mat-toolbar color="primary">
 
-  <span><a href="/"><app-titlecase-pipe></app-titlecase-pipe></a></span>
-
   <!-- Sidenav activate -->
-  <div class="sidenav-content">
-    <button type="button" mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
-  </div>
+<!--  <div class="sidenav-content">-->
+<!--    <button type="button" mat-icon-button (click)="sidenav.toggle()">-->
+<!--        <mat-icon>menu</mat-icon>-->
+<!--    </button>-->
+<!--  </div>-->
+  
+  <span><a href="/"><app-titlecase-pipe></app-titlecase-pipe></a></span>
 
   <!-- Menu -->
   <span class="spacer"></span>
-
-  <div *ngIf="!authService.isAuthenticated();">
-    <app-date-pipe></app-date-pipe>
-  </div>
-
+  
+  <span><a href="/">Blog</a> &nbsp;</span>
+  <span><a href="/">Über uns</a> &nbsp;</span>
+  <span><a href="/">Kontakt</a> &nbsp;</span>
+  
   <span class="spacer-light"></span>
 
   <div *ngIf="!authService.isAuthenticated(); else loggedin">
