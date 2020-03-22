@@ -24,6 +24,11 @@
       <span>Misc</span>
     </button>
 
+    <button mat-button routerLink="/products" (click)="sidenav.close()">
+      <span class="fa fa-2x fa-shopping-cart"></span>
+      <span>Products</span>
+    </button>
+
     <hr>
 
     <div *ngIf="!authService.isAuthenticated(); else logout">

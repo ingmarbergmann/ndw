@@ -12,6 +12,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileSettingsComponent } from './pages/profile/profile-settings.component';
+import { ProductsComponent } from "./pages/products/products.component";
 
 // Components
 import { MiscComponent } from './components/misc/misc.component';
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   { path: 'about', component: AboutMeComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'misc', component: MiscComponent },
+  { path: 'products', component: ProductsComponent },
   { path: 'auth', component: AuthComponent },
 
   // Protected pages

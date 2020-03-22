@@ -35,6 +35,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutMeComponent } from './pages/about-me/about-me.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { PageNotFoundComponent } from './pages/not-found/not-found.component';
+import { ProductsComponent } from "./pages/products/products.component";
 
 // Components
 import { EmailMeComponent } from './components/email-me/email-me.component';
@@ -54,6 +55,8 @@ import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AngularFireDatabaseModule} from "@angular/fire/database";
+import {MatListModule} from "@angular/material/list";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -61,6 +64,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
     HomeComponent,
     AboutMeComponent,
     ContactComponent,
+    ProductsComponent,
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
@@ -86,7 +90,7 @@ import {AngularFireDatabaseModule} from "@angular/fire/database";
     BackgroundsModule,
     ProfileModule,
     MiscModule,
-    NgxAuthFirebaseUIModule.forRoot(firebaseKeys)
+    NgxAuthFirebaseUIModule.forRoot(firebaseKeys), MatListModule, MatAutocompleteModule
   ],
   providers: [
     UserService,

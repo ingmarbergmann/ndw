@@ -61,6 +61,7 @@
     "rxjs": "^6.5.4",
     "rxjs-compat": "^6.5.4",
     "ts-helpers": "^1.1.2",
+    "view": "^1.1.1",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {

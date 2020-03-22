@@ -1,0 +1,66 @@
+<div class="app-ndw-content-container">
+    <div class="app-ndw-sidebar">
+        <div class="app-ndw-search-container">
+            <mat-form-field class="example-full-width">
+                <input type="text"
+                       placeholder="Pick one"
+                       aria-label="Number"
+                       matInput
+                       [formControl]="myControl"
+                       [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of autocomplete" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+
+        <div class="app-ndw-items-container">
+            <div class="app-ndw-categories-container">
+                <mat-nav-list>
+                    <mat-list-item *ngFor="let category of categories">
+                        <a matLine href="/products">{{ category.title }}</a>
+                        <p matLine>{{ category.description }}</p>
+                        <!--<button mat-icon-button>
+                            <mat-icon>info</mat-icon>
+                        </button>-->
+                    </mat-list-item>
+                </mat-nav-list>
+            </div>
+
+            <div class="app-ndw-products-container">
+                <mat-nav-list>
+                    <mat-list-item *ngFor="let category of categories">
+                        <a matLine href="/products">{{ category.title }}</a>
+                        <p matLine>{{ category.description }}</p>
+                        <!--<button mat-icon-button>
+                            <mat-icon>info</mat-icon>
+                        </button>-->
+                    </mat-list-item>
+                </mat-nav-list>
+            </div>
+        </div>
+    </div>
+
+    <div class="app-ndw-pick-points-container">
+
+    </div>
+
+    <div class="app-ndw-map-container">
+        <google-map
+                height="100%"
+                width="100%"
+                [zoom]="zoom"
+                [center]="center"
+                [options]="options">
+            <map-marker
+                    *ngFor="let marker of markers"
+                    [position]="marker.position"
+                    [label]="marker.label"
+                    [title]="marker.title"
+                    [options]="marker.options"
+            ></map-marker>
+        </google-map>
+    </div>
+</div>
