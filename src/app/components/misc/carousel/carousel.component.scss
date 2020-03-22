@@ -11,18 +11,18 @@
 .slides {
     list-style:none;
     position:relative;
-    width:500%; /* Each slide is 100% */
+    width:700%; /* Each slide is 100% */
     overflow:hidden;
-    -moz-animation:carousel 30s infinite;
-    -webkit-animation:carousel 30s infinite;
-    animation:carousel 30s infinite;
+    -moz-animation:carousel 60s infinite;
+    -webkit-animation:carousel 60s infinite;
+    animation:carousel 60s infinite;
     padding: inherit;
 }
 
 .slides > li {
     position:relative;
     float:left;
-    width: 20%; /* Total of slides should be 100% */
+    width: 14.28%; /* Total of slides should be 100% */
 }
 
 .carousel img {
@@ -47,21 +47,33 @@
 
 @keyframes carousel {
     0%    { left:0%; }
-    11%   { left:0%; }
-    12.5% { left:-100%; }
-    23.5% { left:-100%; }
-    25%   { left:-200%; }
-    36%   { left:-200%; }
-    37.5% { left:-300%; }
-    48.5% { left:-300%; }
-    50%   { left:-400%; }
-    61%   { left:-400%; }
-    62.5% { left:-300%; }
-    73.5% { left:-300%; }
-    75%   { left:-200%; }
-    86%   { left:-200%; }
-    87.5% { left:-100%; }
-    98.5% { left:-100%; }
+    5%    { left:0%; }
+    6%    { left:-100%; }
+    11%   { left:-100%; }
+    12%   { left:-200%; }
+    17%   { left:-200%; }
+    18%   { left:-300%; }
+    23%   { left:-300%; }
+    24%   { left:-400%; }
+    29%   { left:-400%; }
+    30%   { left:-500%; }
+    35%   { left:-500%; }
+    36%   { left:-600%; }
+    41%   { left:-600%; }
+    42%   { left:-700%; }
+    47%   { left:-700%; }
+    48%   { left:-600%; }
+    53%   { left:-600%; }
+    54%   { left:-500%; }
+    59%   { left:-500%; }
+    60%   { left:-400%; }
+    65%   { left:-400%; }
+    66%   { left:-300%; }
+    71%   { left:-300%; }
+    72%   { left:-200%; }
+    77%   { left:-200%; }
+    78%   { left:-100%; }
+    83%   { left:-100%; }
     100%  { left:0%; }
 }
  

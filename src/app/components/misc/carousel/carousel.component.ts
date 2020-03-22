@@ -20,6 +20,6 @@ const IMAGES: Image[] = [
   { 'title': 'Die Lebensmittelautomaten auf einer Karte, sowie in einer Liste anzeigen', 'url': '/assets/img/04_vendingMachines_search_result_detail.png' },
   { 'title': 'Suche', 'url': '/assets/img/05_vendingMachines_NEW_search.png' },
   { 'title': 'Suchergebnisse', 'url': '/assets/img/05_vendingMachines_search_result_detail.png' },
-  { 'title': 'Neuen Lebenmittelautomaten hinzufügen', 'url': '/assets/img/06_vendingMachines_create_new_machine.pngg' }
+  { 'title': 'Neuen Lebenmittelautomaten hinzufügen', 'url': '/assets/img/06_vendingMachines_create_new_machine.png' }
 
 ];
