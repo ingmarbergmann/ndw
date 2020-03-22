@@ -6,6 +6,9 @@ import * as firebase from "firebase";
 import {GeoFire, GeoFireTypes} from "geofire";
 import {AutomatService} from "@shared/services/automat.service";
 import {MapMarker} from "@angular/google-maps";
+import {Subject} from "rxjs";
+import {takeUntil} from "rxjs/operators";
+import {GeoService} from "@shared/services/geo.service";
 
 @Component({
   selector: 'app-home',
@@ -30,36 +33,53 @@ export class HomeComponent {
   markers: any[] = [];
 
   constructor(private loadgeojsonService:LoadgeojsonService,
-              private automatService:AutomatService) {
+              private automatService:AutomatService,
+              private geoService: GeoService) {
   }
 
-  //firebaseRef = firebase.database().ref();
-  // geoFire = new GeoFire(this.firebaseRef);
-  // geoFireRef = this.geoFire.ref();
+  firebaseRef = firebase.database().ref();
+  geoFire = new GeoFire(this.firebaseRef);
+  geoFireRef = this.geoFire.ref();
+  automatsGeoPoints = {};
+
+  private unsubscribe$: Subject<void> = new Subject();
 
   getAutomatsGeoJson() {
     this.loadgeojsonService.getAutomatsGeoJson().subscribe((automatsGeoJson) => {
-      let automatsGeoPoints = {};
 
       //todo DONT UNCOMMENT THIS SHIT
-      //
+      // let i = 0;
       // automatsGeoJson.features.forEach(feature => {
+      //   i++;
+      //   if(i < 60 || i > 70) return;
       //   let automat:Automat = new Automat();
+      //   console.log(automat);
       //   automat.properties = feature.properties;
       //   automat.id = feature.id;
-      //   automat.coordinates = new GeoPoint(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
-      //   this.automatService.saveAutomat2(automat);
-      //   automatsGeoPoints[`automat_${automat.id}`] = feature.geometry.coordinates;
+      //   automat.coordinates = new GeoPoint(feature.geometry.coordinates[1],feature.geometry.coordinates[0]);
+      //   if(this.automatsGeoPoints[`automat_${automat.id}`]) {
+      //     console.log('point is there')
+      //     return;
+      //   }
+      //   this.automatService.saveAutomat(automat);
+      //   this.automatsGeoPoints[`automat_${automat.id.replace('\/','_')}`] = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
+      //   //this.geoService.setLocation(`automat_${automat.id.replace('\/','_')}`, [feature.geometry.coordinates[1],feature.geometry.coordinates[0]])
       // });
 
-      // let feature = automatsGeoJson.features[0];
-      //   let automat:Automat = new Automat();
-      //   automat.properties = feature.properties;
-      //   automat.id = feature.id;
-      //   automat.coordinates = new GeoPoint(feature.geometry.coordinates[0],feature.geometry.coordinates[1]);
-      //   this.automatService.saveAutomat(automat);
-      //   automatsGeoPoints[`automat_${automat.id}`] = feature.geometry.coordinates;
-      // this.geoFireRef.set(automatsGeoJson);
+      // let feature = automatsGeoJson.features[6];
+      // let automat:Automat = new Automat();
+      // console.log(automat)
+      // automat.properties = feature.properties;
+      // automat.id = feature.id;
+      // automat.coordinates = new GeoPoint(feature.geometry.coordinates[1],feature.geometry.coordinates[0]);
+      //
+      // if(this.automatsGeoPoints[`automat_${automat.id}`]) {
+      //   console.log('point is there')
+      //   return;
+      // }
+      // this.automatService.saveAutomat(automat);
+      // this.automatsGeoPoints[`automat_${automat.id.replace('\/','_')}`] = [feature.geometry.coordinates[1],feature.geometry.coordinates[0]];
+      this.geoFire.set(this.automatsGeoPoints);
     })
   }
 
@@ -70,13 +90,13 @@ export class HomeComponent {
         lng: position.coords.longitude,
       }
     });
-    this.automatService.getAutomats().subscribe(automats => {
+    this.automatService.getAutomats().pipe(takeUntil(this.unsubscribe$)).subscribe(automats => {
       console.log(automats);
-      //automats.forEach(automat => this.addMarker(automat.coordinates[0],automat.coordinates[1],automat.id))
-      let automat = automats[0];
-      if(!automat.coordinates) return;
-      this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id)
-    })
+      automats.forEach(automat => {
+        let markerName = automat.properties && automat.properties.name || automat.id;
+        this.addMarker(automat.coordinates.latitude,automat.coordinates.longitude,automat.id, markerName)
+      })
+    });
     //this.getAutomatsGeoJson();
   }
 
@@ -84,7 +104,7 @@ export class HomeComponent {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
   }
 
-  addMarker(lat: number, lng: number, title: string) {
+  addMarker(lat: number, lng: number, title: string, label: string) {
     this.markers.push({
       position: {
         lat,
@@ -92,11 +112,15 @@ export class HomeComponent {
       },
       label: {
         color: 'red',
-        text: title + ' - label',
+        text: label,
       },
       title,
       options: { animation: google.maps.Animation.BOUNCE },
     })
   }
 
+  ngOnDestroy(): void  {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }

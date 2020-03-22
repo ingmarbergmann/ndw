@@ -53,6 +53,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
+import {AngularFireDatabaseModule} from "@angular/fire/database";
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {AngularFirestoreModule} from "@angular/fire/firestore";
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     GoogleMapsModule,
     BrowserModule,
     BrowserAnimationsModule,
