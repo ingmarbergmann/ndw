@@ -46,3 +46,9 @@ app-root {
 @media only screen and (max-width: 320px) {
 
 }
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+}
