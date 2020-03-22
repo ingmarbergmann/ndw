@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+//import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 // Components
 import { AuthComponent } from './auth.component';
@@ -25,7 +25,7 @@ import {MatCardModule} from "@angular/material/card";
     FormsModule,
     MatButtonModule, MatInputModule, MatProgressBarModule,
     MatCardModule, MatIconModule,
-    NgxAuthFirebaseUIModule
+    //NgxAuthFirebaseUIModule
   ],
   providers: [
   ],

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+// import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { GoogleMapsModule } from '@angular/google-maps'
 // Modules
 import { BlocksModule } from './components/blocks/blocks.module';
@@ -90,7 +90,25 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     BackgroundsModule,
     ProfileModule,
     MiscModule,
-    NgxAuthFirebaseUIModule.forRoot(firebaseKeys), MatListModule, MatAutocompleteModule
+    // NgxAuthFirebaseUIModule.forRoot(environment.firebase,
+    //     undefined,
+    //     {
+    //       enableFirestoreSync: true, // enable/disable autosync users with firestore
+    //       toastMessageOnAuthSuccess: false, // whether to open/show a snackbar message on auth success - default : true
+    //       toastMessageOnAuthError: false, // whether to open/show a snackbar message on auth error - default : true
+    //       authGuardFallbackURL: '/loggedout', // url for unauthenticated users - to use in combination with canActivate feature on a route
+    //       authGuardLoggedInURL: '/loggedin', // url for authenticated users - to use in combination with canActivate feature on a route
+    //       passwordMaxLength: 60, // `min/max` input parameters in components should be within this range.
+    //       passwordMinLength: 8, // Password length min/max in forms independently of each componenet min/max.
+    //       // Same as password but for the name
+    //       nameMaxLength: 50,
+    //       nameMinLength: 2,
+    //       // If set, sign-in/up form is not available until email has been verified.
+    //       // Plus protected routes are still protected even though user is connected.
+    //       guardProtectedRoutesUntilEmailIsVerified: true,
+    //       enableEmailVerification: false // default: true
+    //     }),
+        MatListModule, MatAutocompleteModule
   ],
   providers: [
     UserService,
@@ -105,4 +123,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
   bootstrap: [AppComponent]
 })
 export class AppModule {
+}
+export function firebaseAppNameFactory(): string {
+  return "Lebensmittelautomaten";
 }

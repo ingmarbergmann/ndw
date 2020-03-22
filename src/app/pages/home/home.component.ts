@@ -27,11 +27,11 @@ export class HomeComponent {
 
   @ViewChild(GoogleMap, { static: false }) map: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false }) info: MapInfoWindow;
-  infoContent = {};
+  infoContent = {properties:{name:null},id:null};
 
   openInfo(marker: MapMarker, content) {
-    console.log(marker._marker.markerData, content);
-    this.infoContent = marker._marker.markerData;
+    //console.log(marker, marker._marker.markerData, content);
+    //this.infoContent = marker._marker.markerData;
     this.info.open(marker)
   }
   zoom = 12;
@@ -64,7 +64,7 @@ export class HomeComponent {
       // let i = 0;
       // automatsGeoJson.features.forEach(feature => {
       //   i++;
-      //   if(i < 60 || i > 70) return;
+      //   if(i < 70 || i > 100) return;
       //   let automat:Automat = new Automat();
       //   console.log(automat);
       //   automat.properties = feature.properties;
