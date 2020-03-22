@@ -30,9 +30,9 @@ export class ProductsComponent implements OnInit {
   automatsGeoPoints = {};
 
   categories = [
-    { title: "Бухло", description: "Пиво, водка, вино, шнапс" },
-    { title: "Жрачка полуфабрикаты", description: "Пельмешки, котлетосы, сосисоны" },
-    { title: "Молочка", description: "Молоко, сметана, кефир, яйки" },
+    { title: "Getränke", description: "Bier, Saft, Wasser, Cola" },
+    { title: "Essen", description: "Wurst, Brot, Tiefkühlware" },
+    { title: "Milchprodukte", description: "Milch, Sauersahne, Eier, Käse" },
   ];
   myControl = new FormControl();
   autocomplete: string[] = ['One', 'Two', 'Three'];

@@ -2,8 +2,8 @@
     <div class="app-ndw-sidebar">
         <div class="app-ndw-search-container">
             <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Поиск продуктов</mat-label>
-                <input matInput placeholder="Давай поищем" matInput
+                <mat-label>Produktsuche</mat-label>
+                <input matInput placeholder="Jetzt Suchen" matInput
                        [formControl]="myControl"
                        [matAutocomplete]="auto">
                 <mat-icon matSuffix>search</mat-icon>
@@ -17,7 +17,7 @@
 
         <div class="app-ndw-items-container">
             <div class="app-ndw-categories-container">
-                <h4>Категории продуктов</h4>
+                <h4>Kategorie</h4>
                 <mat-nav-list>
                     <mat-list-item *ngFor="let category of categories">
                         <a matLine href="/products">{{ category.title }}</a>
@@ -30,7 +30,7 @@
             </div>
 
             <div class="app-ndw-products-container">
-                <h4>Продукты</h4>
+                <h4>Artikel</h4>
                 <mat-nav-list>
                     <mat-list-item *ngFor="let category of categories">
                         <a matLine href="/products">{{ category.title }}</a>
@@ -44,7 +44,7 @@
         </div>
 
         <div class="app-ndw-shopping-cart">
-            <h4>Что навыбирал</h4>
+            <h4>Was ausgewählt ist</h4>
         </div>
     </div>
 
@@ -52,7 +52,7 @@
         <mat-card class="example-card">
             <mat-card-header>
                 <!--<div mat-card-avatar class="example-header-image"></div>-->
-                <mat-card-title>EDEKA пикпойнт</mat-card-title>
+                <mat-card-title>EDEKA pick point</mat-card-title>
                 <mat-card-subtitle>70537, Stuttgart, Rohr Poher 20</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://www.edeka.de/media/edeka-zentrale/responsive/eh-teaser-angebote-navi-angebote.png?imwidth=960&imdensity=1" alt="Photo of a Shiba Inu">
@@ -65,7 +65,7 @@
         <mat-card class="example-card">
             <mat-card-header>
                 <!--<div mat-card-avatar class="example-header-image"></div>-->
-                <mat-card-title>REWE пикпойнт</mat-card-title>
+                <mat-card-title>REWE pick point</mat-card-title>
                 <mat-card-subtitle>70537, Stuttgart, Rohr Poher 20</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://www.rewe.de/_ts_01567689558438/dam/rewe-de/produkte-und-services/unsere-marken/marken-uebersicht/startseite-markenteaser/Aktualisierung_startseite_regional_1024.jpg" alt="Photo of a Shiba Inu">
@@ -78,7 +78,7 @@
         <mat-card class="example-card">
             <mat-card-header>
                 <!--<div mat-card-avatar class="example-header-image"></div>-->
-                <mat-card-title>LIDL пикпойнт</mat-card-title>
+                <mat-card-title>LIDL pick point</mat-card-title>
                 <mat-card-subtitle>70537, Stuttgart, Rohr Poher 20</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="https://www.lidl-kochen.de/images/recipe/371471/reisbratlinge-mit-ofenkarotten-feta-salat-150651.jpg" alt="Photo of a Shiba Inu">
